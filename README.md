@@ -31,8 +31,17 @@
 
 ## 📸 Screenshots
 
-> Dashboard, Heatmap, Problems Table, Analytics, Leaderboard
-> *(Visit the [live demo](https://dsa-tracker-wheat-tau.vercel.app) to see the full app)*
+### Dashboard
+![Dashboard](screenshots/dashboard.png)
+
+### Problems Table
+![Problems](screenshots/problems.png)
+
+### Practice Sheets
+![Sheets](screenshots/sheets.png)
+
+### Topics
+![Topics](screenshots/topics.png)
 
 ---
 
