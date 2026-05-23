@@ -38,6 +38,9 @@ app.use(
 // Parse JSON request bodies
 app.use(express.json());
 
+// Trust the reverse proxy (Render/Vercel) for accurate IP rate limiting
+app.set('trust proxy', 1);
+
 // ── Rate Limiting ────────────────────────────────────────────────────────────
 const apiLimiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
