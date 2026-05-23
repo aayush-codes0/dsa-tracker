@@ -21,7 +21,7 @@ USE dsa_tracker;
 -- ─────────────────────────────────────────────────────────────────────────────
 DROP TRIGGER IF EXISTS trg_after_submission_insert;
 
-DELIMITER $$
+
 
 CREATE TRIGGER trg_after_submission_insert
 AFTER INSERT ON submissions
@@ -106,9 +106,9 @@ BEGIN
             WHERE user_id = NEW.user_id;
         END IF;
     END IF;
-END$$
+END;
 
-DELIMITER ;
+
 
 
 -- ─────────────────────────────────────────────────────────────────────────────
@@ -124,7 +124,7 @@ DELIMITER ;
 -- ─────────────────────────────────────────────────────────────────────────────
 DROP TRIGGER IF EXISTS trg_after_submission_update_streak;
 
-DELIMITER $$
+
 
 CREATE TRIGGER trg_after_submission_update_streak
 AFTER INSERT ON submissions
@@ -172,9 +172,9 @@ BEGIN
             END IF;
         END IF;
     END IF;
-END$$
+END;
 
-DELIMITER ;
+
 
 
 -- ─────────────────────────────────────────────────────────────────────────────
@@ -184,7 +184,7 @@ DELIMITER ;
 -- ─────────────────────────────────────────────────────────────────────────────
 DROP TRIGGER IF EXISTS trg_after_problem_insert;
 
-DELIMITER $$
+
 
 CREATE TRIGGER trg_after_problem_insert
 AFTER INSERT ON problems
@@ -196,9 +196,9 @@ BEGIN
         SET total_problems = total_problems + 1
         WHERE topic_id = NEW.topic_id;
     END IF;
-END$$
+END;
 
-DELIMITER ;
+
 
 -- =============================================================================
 -- End of triggers.sql

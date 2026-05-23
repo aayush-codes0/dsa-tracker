@@ -15,7 +15,7 @@ USE dsa_tracker;
 -- ─────────────────────────────────────────────────────────────────────────────
 DROP PROCEDURE IF EXISTS sp_get_user_analytics;
 
-DELIMITER $$
+
 
 CREATE PROCEDURE sp_get_user_analytics(IN p_user_id INT)
 BEGIN
@@ -79,9 +79,9 @@ BEGIN
         u.total_solved,
         u.current_streak,
         u.max_streak;
-END$$
+END;
 
-DELIMITER ;
+
 
 
 -- ─────────────────────────────────────────────────────────────────────────────
@@ -92,7 +92,7 @@ DELIMITER ;
 -- ─────────────────────────────────────────────────────────────────────────────
 DROP PROCEDURE IF EXISTS sp_recalculate_progress;
 
-DELIMITER $$
+
 
 CREATE PROCEDURE sp_recalculate_progress(IN p_user_id INT)
 BEGIN
@@ -135,9 +135,9 @@ BEGIN
         total_count    = VALUES(total_count),
         percentage     = VALUES(percentage),
         last_practiced = VALUES(last_practiced);
-END$$
+END;
 
-DELIMITER ;
+
 
 
 -- ─────────────────────────────────────────────────────────────────────────────
@@ -150,7 +150,7 @@ DELIMITER ;
 -- ─────────────────────────────────────────────────────────────────────────────
 DROP PROCEDURE IF EXISTS sp_award_badges;
 
-DELIMITER $$
+
 
 CREATE PROCEDURE sp_award_badges(IN p_user_id INT)
 BEGIN
@@ -260,9 +260,9 @@ BEGIN
     INNER JOIN badges b ON a.badge_id = b.badge_id
     WHERE a.user_id = p_user_id
     ORDER BY a.earned_at;
-END$$
+END;
 
-DELIMITER ;
+
 
 
 -- ─────────────────────────────────────────────────────────────────────────────
@@ -276,7 +276,7 @@ DELIMITER ;
 -- ─────────────────────────────────────────────────────────────────────────────
 DROP PROCEDURE IF EXISTS sp_get_heatmap_data;
 
-DELIMITER $$
+
 
 CREATE PROCEDURE sp_get_heatmap_data(
     IN p_user_id INT,
@@ -306,9 +306,9 @@ BEGIN
         ON c.cal_date = us.stat_date
        AND us.user_id = p_user_id
     ORDER BY c.cal_date;
-END$$
+END;
 
-DELIMITER ;
+
 
 -- =============================================================================
 -- End of procedures.sql
