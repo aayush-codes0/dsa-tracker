@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #0f172a; }
+::-webkit-scrollbar-thumb { background: #334155; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #475569; }
+
+/* Custom styles */
+@layer components {
+  .glass-card {
+    @apply bg-dark-800/50 backdrop-blur-xl border border-dark-700/50 rounded-xl;
+  }
+  .btn-primary {
+    @apply px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg font-medium transition-all duration-200 hover:shadow-lg hover:shadow-emerald-500/25;
+  }
+  .btn-secondary {
+    @apply px-4 py-2 bg-dark-700 hover:bg-dark-600 text-dark-200 rounded-lg font-medium transition-all duration-200;
+  }
+  .btn-danger {
+    @apply px-4 py-2 bg-rose-600 hover:bg-rose-500 text-white rounded-lg font-medium transition-all duration-200;
+  }
+  .input-field {
+    @apply w-full px-4 py-2.5 bg-dark-900 border border-dark-700 rounded-lg text-dark-100 placeholder-dark-500 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all duration-200;
+  }
+  .badge-easy { @apply px-2.5 py-0.5 bg-emerald-500/15 text-emerald-400 rounded-full text-xs font-semibold; }
+  .badge-medium { @apply px-2.5 py-0.5 bg-amber-500/15 text-amber-400 rounded-full text-xs font-semibold; }
+  .badge-hard { @apply px-2.5 py-0.5 bg-rose-500/15 text-rose-400 rounded-full text-xs font-semibold; }
+  .stat-card {
+    @apply glass-card p-6 hover:border-dark-600 transition-all duration-300;
+  }
+}
+
+/* Animations */
+.animate-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Skeleton loading shimmer */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #1e293b 25%, #334155 50%, #1e293b 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+  border-radius: 0.5rem;
+}

@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DSA Tracker — ER Diagram</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background: #fff; }
+        h1 { text-align: center; padding: 20px 20px 4px; font-size: 1.4rem; }
+        .sub { text-align: center; color: #666; font-size: 0.85rem; margin-bottom: 8px; }
+        .legend {
+            display: flex; justify-content: center; gap: 30px; padding: 6px 0 10px;
+            font-size: 0.8rem; color: #333; flex-wrap: wrap;
+        }
+        .legend span { display: inline-flex; align-items: center; gap: 6px; }
+        .lr { width: 24px; height: 14px; border: 2px solid #000; display: inline-block; }
+        .lo { width: 28px; height: 14px; border: 2px solid #000; border-radius: 50%; display: inline-block; }
+        .ld { width: 14px; height: 14px; border: 2px solid #000; transform: rotate(45deg); display: inline-block; }
+        .wrap { display: flex; justify-content: center; overflow: auto; padding: 0 10px 40px; }
+        svg text { font-family: 'Segoe UI', Arial, sans-serif; }
+    </style>
+</head>
+<body>
+
+<h1>DSA Tracker — Entity Relationship Diagram</h1>
+<p class="sub">Chen Notation • 6 Entities • 6 Relationships</p>
+<div class="legend">
+    <span><i class="lr"></i> Entity</span>
+    <span><i class="lo"></i> Attribute</span>
+    <span><i class="ld"></i> Relationship</span>
+    <span style="text-decoration:underline;font-weight:600;">attr</span> = Primary Key
+    <span style="font-weight:600;">1, N</span> = Cardinality
+</div>
+
+<div class="wrap">
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="2600" viewBox="0 0 1600 2600">
+<style>
+    .entity-rect { fill: #fff; stroke: #000; stroke-width: 2.5; }
+    .attr-oval { fill: #fff; stroke: #000; stroke-width: 1.5; }
+    .diamond { fill: #fff; stroke: #000; stroke-width: 2; }
+    .conn { stroke: #000; stroke-width: 1.5; fill: none; }
+    .ename { font-size: 15px; font-weight: bold; text-anchor: middle; dominant-baseline: central; }
+    .aname { font-size: 11px; text-anchor: middle; dominant-baseline: central; }
+    .pk { font-size: 11px; text-anchor: middle; dominant-baseline: central; text-decoration: underline; }
+    .dname { font-size: 11px; font-weight: bold; text-anchor: middle; dominant-baseline: central; }
+    .card { font-size: 13px; font-weight: bold; text-anchor: middle; dominant-baseline: central; }
+</style>
+
+<!-- ============================================================ -->
+<!-- USERS ENTITY (top-left, center at 300, 350) -->
+<!-- ============================================================ -->
+<rect x="230" y="330" width="140" height="40" class="entity-rect"/>
+<text x="300" y="350" class="ename">USERS</text>
+
+<!-- user_id (PK) -->
+<line x1="300" y1="330" x2="300" y2="240" class="conn"/>
+<ellipse cx="300" cy="220" rx="42" ry="16" class="attr-oval"/>
+<text x="300" y="220" class="pk">user_id</text>
+
+<!-- username -->
+<line x1="253" y1="330" x2="160" y2="260" class="conn"/>
+<ellipse cx="140" cy="248" rx="48" ry="16" class="attr-oval"/>
+<text x="140" y="248" class="aname">username</text>
+
+<!-- email -->
+<line x1="347" y1="330" x2="440" y2="260" class="conn"/>
+<ellipse cx="458" cy="248" rx="35" ry="16" class="attr-oval"/>
+<text x="458" y="248" class="aname">email</text>
+
+<!-- password_hash -->
+<line x1="230" y1="350" x2="90" y2="320" class="conn"/>
+<ellipse cx="70" cy="312" rx="62" ry="16" class="attr-oval"/>
+<text x="70" y="312" class="aname">password_hash</text>
+
+<!-- full_name -->
+<line x1="370" y1="350" x2="510" y2="320" class="conn"/>
+<ellipse cx="528" cy="312" rx="48" ry="16" class="attr-oval"/>
+<text x="528" y="312" class="aname">full_name</text>
+
+<!-- joined_date -->
+<line x1="230" y1="360" x2="80" y2="380" class="conn"/>
+<ellipse cx="62" cy="380" rx="52" ry="16" class="attr-oval"/>
+<text x="62" y="380" class="aname">joined_date</text>
+
+<!-- current_streak -->
+<line x1="370" y1="360" x2="530" y2="380" class="conn"/>
+<ellipse cx="548" cy="380" rx="62" ry="16" class="attr-oval"/>
+<text x="548" y="380" class="aname">current_streak</text>
+
+<!-- max_streak -->
+<line x1="260" y1="370" x2="150" y2="435" class="conn"/>
+<ellipse cx="132" cy="440" rx="52" ry="16" class="attr-oval"/>
+<text x="132" y="440" class="aname">max_streak</text>
+
+<!-- total_solved -->
+<line x1="340" y1="370" x2="450" y2="435" class="conn"/>
+<ellipse cx="468" cy="440" rx="55" ry="16" class="attr-oval"/>
+<text x="468" y="440" class="aname">total_solved</text>
+
+
+<!-- ============================================================ -->
+<!-- TOPICS ENTITY (top-right, center at 1300, 350) -->
+<!-- ============================================================ -->
+<rect x="1230" y="330" width="140" height="40" class="entity-rect"/>
+<text x="1300" y="350" class="ename">TOPICS</text>
+
+<!-- topic_id (PK) -->
+<line x1="1300" y1="330" x2="1300" y2="240" class="conn"/>
+<ellipse cx="1300" cy="220" rx="42" ry="16" class="attr-oval"/>
+<text x="1300" y="220" class="pk">topic_id</text>
+
+<!-- topic_name -->
+<line x1="1248" y1="330" x2="1160" y2="260" class="conn"/>
+<ellipse cx="1140" cy="248" rx="52" ry="16" class="attr-oval"/>
+<text x="1140" y="248" class="aname">topic_name</text>
+
+<!-- icon -->
+<line x1="1352" y1="330" x2="1440" y2="260" class="conn"/>
+<ellipse cx="1455" cy="248" rx="30" ry="16" class="attr-oval"/>
+<text x="1455" y="248" class="aname">icon</text>
+
+<!-- color_hex -->
+<line x1="1230" y1="360" x2="1120" y2="380" class="conn"/>
+<ellipse cx="1100" cy="380" rx="48" ry="16" class="attr-oval"/>
+<text x="1100" y="380" class="aname">color_hex</text>
+
+<!-- description -->
+<line x1="1370" y1="360" x2="1480" y2="380" class="conn"/>
+<ellipse cx="1500" cy="380" rx="52" ry="16" class="attr-oval"/>
+<text x="1500" y="380" class="aname">description</text>
+
+<!-- total_problems -->
+<line x1="1300" y1="370" x2="1300" y2="440" class="conn"/>
+<ellipse cx="1300" cy="456" rx="62" ry="16" class="attr-oval"/>
+<text x="1300" y="456" class="aname">total_problems</text>
+
+
+<!-- ============================================================ -->
+<!-- CONTAINS Relationship Diamond (between TOPICS and PROBLEMS) -->
+<!-- center at 1050, 650 -->
+<!-- ============================================================ -->
+<line x1="1300" y1="370" x2="1050" y2="630" class="conn"/>
+<line x1="1050" y1="670" x2="800" y2="870" class="conn"/>
+<polygon points="1050,605 1105,650 1050,695 995,650" class="diamond"/>
+<text x="1050" y="650" class="dname">Contains</text>
+<text x="1220" y="530" class="card">1</text>
+<text x="890" y="790" class="card">N</text>
+
+
+<!-- ============================================================ -->
+<!-- PROBLEMS ENTITY (center, at 800, 900) -->
+<!-- ============================================================ -->
+<rect x="720" y="880" width="160" height="40" class="entity-rect"/>
+<text x="800" y="900" class="ename">PROBLEMS</text>
+
+<!-- problem_id (PK) -->
+<line x1="800" y1="880" x2="800" y2="790" class="conn"/>
+<ellipse cx="800" cy="770" rx="52" ry="16" class="attr-oval"/>
+<text x="800" y="770" class="pk">problem_id</text>
+
+<!-- title -->
+<line x1="720" y1="890" x2="590" y2="830" class="conn"/>
+<ellipse cx="572" cy="822" rx="30" ry="16" class="attr-oval"/>
+<text x="572" y="822" class="aname">title</text>
+
+<!-- difficulty -->
+<line x1="720" y1="900" x2="570" y2="885" class="conn"/>
+<ellipse cx="548" cy="882" rx="42" ry="16" class="attr-oval"/>
+<text x="548" y="882" class="aname">difficulty</text>
+
+<!-- platform -->
+<line x1="720" y1="910" x2="570" y2="940" class="conn"/>
+<ellipse cx="548" cy="942" rx="42" ry="16" class="attr-oval"/>
+<text x="548" y="942" class="aname">platform</text>
+
+<!-- problem_url -->
+<line x1="720" y1="915" x2="580" y2="1000" class="conn"/>
+<ellipse cx="558" cy="1002" rx="55" ry="16" class="attr-oval"/>
+<text x="558" y="1002" class="aname">problem_url</text>
+
+<!-- topic_id FK -->
+<line x1="880" y1="890" x2="1020" y2="830" class="conn"/>
+<ellipse cx="1042" cy="822" rx="50" ry="16" class="attr-oval"/>
+<text x="1042" y="822" class="aname">topic_id (FK)</text>
+
+<!-- time_complexity -->
+<line x1="880" y1="900" x2="1040" y2="885" class="conn"/>
+<ellipse cx="1070" cy="882" rx="65" ry="16" class="attr-oval"/>
+<text x="1070" y="882" class="aname">time_complexity</text>
+
+<!-- space_complexity -->
+<line x1="880" y1="910" x2="1040" y2="940" class="conn"/>
+<ellipse cx="1072" cy="942" rx="68" ry="16" class="attr-oval"/>
+<text x="1072" y="942" class="aname">space_complexity</text>
+
+<!-- is_favorite -->
+<line x1="880" y1="915" x2="1030" y2="1000" class="conn"/>
+<ellipse cx="1050" cy="1002" rx="48" ry="16" class="attr-oval"/>
+<text x="1050" y="1002" class="aname">is_favorite</text>
+
+<!-- date_added -->
+<line x1="800" y1="920" x2="800" y2="1040" class="conn"/>
+<ellipse cx="800" cy="1058" rx="52" ry="16" class="attr-oval"/>
+<text x="800" y="1058" class="aname">date_added</text>
+
+
+<!-- ============================================================ -->
+<!-- MAKES Relationship (USERS -> SUBMISSIONS) -->
+<!-- Diamond at 300, 850 -->
+<!-- ============================================================ -->
+<line x1="300" y1="370" x2="300" y2="825" class="conn"/>
+<line x1="300" y1="875" x2="300" y2="1310" class="conn"/>
+<polygon points="300,825 355,850 300,875 245,850" class="diamond"/>
+<text x="300" y="850" class="dname">Makes</text>
+<text x="320" y="530" class="card">1</text>
+<text x="320" y="1150" class="card">N</text>
+
+
+<!-- ============================================================ -->
+<!-- WRITES Relationship (USERS -> NOTES) -->
+<!-- Diamond at 550, 1180 -->
+<!-- ============================================================ -->
+<line x1="340" y1="370" x2="550" y2="1155" class="conn"/>
+<line x1="550" y1="1205" x2="800" y2="2060" class="conn"/>
+<polygon points="550,1155 605,1180 550,1205 495,1180" class="diamond"/>
+<text x="550" y="1180" class="dname">Writes</text>
+<text x="420" y="650" class="card">1</text>
+<text x="710" y="1800" class="card">N</text>
+
+
+<!-- ============================================================ -->
+<!-- SETS Relationship (USERS -> DAILY_GOALS) -->
+<!-- Diamond at 800, 1500 -->
+<!-- ============================================================ -->
+<line x1="360" y1="370" x2="775" y2="1480" class="conn"/>
+<line x1="825" y1="1520" x2="1300" y2="2060" class="conn"/>
+<polygon points="800,1480 855,1500 800,1520 745,1500" class="diamond"/>
+<text x="800" y="1500" class="dname">Sets</text>
+<text x="510" y="750" class="card">1</text>
+<text x="1130" y="1880" class="card">N</text>
+
+
+<!-- ============================================================ -->
+<!-- HAS_SUB Relationship (PROBLEMS -> SUBMISSIONS) -->
+<!-- Diamond at 530, 1330 -->
+<!-- ============================================================ -->
+<line x1="750" y1="920" x2="530" y2="1305" class="conn"/>
+<line x1="530" y1="1355" x2="340" y2="1700" class="conn"/>
+<polygon points="530,1305 585,1330 530,1355 475,1330" class="diamond"/>
+<text x="530" y="1330" class="dname">Has_Sub</text>
+<text x="670" y="1060" class="card">1</text>
+<text x="410" y="1590" class="card">N</text>
+
+
+<!-- ============================================================ -->
+<!-- HAS_NOTE Relationship (PROBLEMS -> NOTES) -->
+<!-- Diamond at 800, 1600 -->
+<!-- ============================================================ -->
+<line x1="800" y1="920" x2="800" y2="1575" class="conn"/>
+<line x1="800" y1="1625" x2="800" y2="2060" class="conn"/>
+<polygon points="800,1575 855,1600 800,1625 745,1600" class="diamond"/>
+<text x="800" y="1600" class="dname">Has_Note</text>
+<text x="820" y="1200" class="card">1</text>
+<text x="820" y="1900" class="card">N</text>
+
+
+<!-- ============================================================ -->
+<!-- SUBMISSIONS ENTITY (bottom-left, center at 300, 1730) -->
+<!-- ============================================================ -->
+<rect x="210" y="1710" width="180" height="40" class="entity-rect"/>
+<text x="300" y="1730" class="ename">SUBMISSIONS</text>
+
+<!-- submission_id (PK) -->
+<line x1="210" y1="1720" x2="70" y2="1670" class="conn"/>
+<ellipse cx="55" cy="1658" rx="60" ry="16" class="attr-oval"/>
+<text x="55" y="1658" class="pk">submission_id</text>
+
+<!-- user_id FK -->
+<line x1="210" y1="1730" x2="60" y2="1730" class="conn"/>
+<ellipse cx="42" cy="1730" rx="55" ry="16" class="attr-oval"/>
+<text x="42" y="1730" class="aname">user_id (FK)</text>
+
+<!-- problem_id FK -->
+<line x1="210" y1="1740" x2="55" y2="1800" class="conn"/>
+<ellipse cx="40" cy="1800" rx="60" ry="16" class="attr-oval"/>
+<text x="40" y="1800" class="aname">problem_id (FK)</text>
+
+<!-- status -->
+<line x1="390" y1="1720" x2="520" y2="1670" class="conn"/>
+<ellipse cx="538" cy="1660" rx="35" ry="16" class="attr-oval"/>
+<text x="538" y="1660" class="aname">status</text>
+
+<!-- time_taken_min -->
+<line x1="390" y1="1730" x2="540" y2="1730" class="conn"/>
+<ellipse cx="570" cy="1730" rx="62" ry="16" class="attr-oval"/>
+<text x="570" y="1730" class="aname">time_taken_min</text>
+
+<!-- approach_used -->
+<line x1="390" y1="1740" x2="530" y2="1795" class="conn"/>
+<ellipse cx="556" cy="1798" rx="62" ry="16" class="attr-oval"/>
+<text x="556" y="1798" class="aname">approach_used</text>
+
+<!-- language_used -->
+<line x1="250" y1="1750" x2="100" y2="1870" class="conn"/>
+<ellipse cx="80" cy="1875" rx="62" ry="16" class="attr-oval"/>
+<text x="80" y="1875" class="aname">language_used</text>
+
+<!-- attempts -->
+<line x1="300" y1="1750" x2="300" y2="1870" class="conn"/>
+<ellipse cx="300" cy="1885" rx="42" ry="16" class="attr-oval"/>
+<text x="300" y="1885" class="aname">attempts</text>
+
+<!-- confidence -->
+<line x1="350" y1="1750" x2="460" y2="1870" class="conn"/>
+<ellipse cx="478" cy="1878" rx="48" ry="16" class="attr-oval"/>
+<text x="478" y="1878" class="aname">confidence</text>
+
+<!-- submitted_at -->
+<line x1="300" y1="1750" x2="300" y2="1950" class="conn"/>
+<ellipse cx="300" cy="1965" rx="55" ry="16" class="attr-oval"/>
+<text x="300" y="1965" class="aname">submitted_at</text>
+
+
+<!-- ============================================================ -->
+<!-- NOTES ENTITY (bottom-center, center at 800, 2090) -->
+<!-- ============================================================ -->
+<rect x="735" y="2070" width="130" height="40" class="entity-rect"/>
+<text x="800" y="2090" class="ename">NOTES</text>
+
+<!-- note_id (PK) -->
+<line x1="800" y1="2110" x2="800" y2="2180" class="conn"/>
+<ellipse cx="800" cy="2198" rx="40" ry="16" class="attr-oval"/>
+<text x="800" y="2198" class="pk">note_id</text>
+
+<!-- user_id FK -->
+<line x1="735" y1="2080" x2="610" y2="2060" class="conn"/>
+<ellipse cx="588" cy="2054" rx="55" ry="16" class="attr-oval"/>
+<text x="588" y="2054" class="aname">user_id (FK)</text>
+
+<!-- problem_id FK -->
+<line x1="865" y1="2080" x2="990" y2="2060" class="conn"/>
+<ellipse cx="1015" cy="2054" rx="60" ry="16" class="attr-oval"/>
+<text x="1015" y="2054" class="aname">problem_id (FK)</text>
+
+<!-- content -->
+<line x1="735" y1="2095" x2="600" y2="2140" class="conn"/>
+<ellipse cx="580" cy="2144" rx="40" ry="16" class="attr-oval"/>
+<text x="580" y="2144" class="aname">content</text>
+
+<!-- key_insight -->
+<line x1="865" y1="2095" x2="1000" y2="2140" class="conn"/>
+<ellipse cx="1022" cy="2144" rx="50" ry="16" class="attr-oval"/>
+<text x="1022" y="2144" class="aname">key_insight</text>
+
+<!-- created_at -->
+<line x1="750" y1="2110" x2="640" y2="2220" class="conn"/>
+<ellipse cx="622" cy="2226" rx="48" ry="16" class="attr-oval"/>
+<text x="622" y="2226" class="aname">created_at</text>
+
+<!-- updated_at -->
+<line x1="850" y1="2110" x2="960" y2="2220" class="conn"/>
+<ellipse cx="980" cy="2226" rx="50" ry="16" class="attr-oval"/>
+<text x="980" y="2226" class="aname">updated_at</text>
+
+
+<!-- ============================================================ -->
+<!-- DAILY_GOALS ENTITY (bottom-right, center at 1300, 2090) -->
+<!-- ============================================================ -->
+<rect x="1215" y="2070" width="170" height="40" class="entity-rect"/>
+<text x="1300" y="2090" class="ename">DAILY_GOALS</text>
+
+<!-- goal_id (PK) -->
+<line x1="1300" y1="2110" x2="1300" y2="2180" class="conn"/>
+<ellipse cx="1300" cy="2198" rx="38" ry="16" class="attr-oval"/>
+<text x="1300" y="2198" class="pk">goal_id</text>
+
+<!-- user_id FK -->
+<line x1="1215" y1="2080" x2="1100" y2="2060" class="conn"/>
+<ellipse cx="1078" cy="2054" rx="55" ry="16" class="attr-oval"/>
+<text x="1078" y="2054" class="aname">user_id (FK)</text>
+
+<!-- goal_date -->
+<line x1="1385" y1="2080" x2="1500" y2="2060" class="conn"/>
+<ellipse cx="1520" cy="2054" rx="46" ry="16" class="attr-oval"/>
+<text x="1520" y="2054" class="aname">goal_date</text>
+
+<!-- target_problems -->
+<line x1="1215" y1="2095" x2="1070" y2="2130" class="conn"/>
+<ellipse cx="1045" cy="2134" rx="68" ry="16" class="attr-oval"/>
+<text x="1045" y="2134" class="aname">target_problems</text>
+
+<!-- completed_problems -->
+<line x1="1385" y1="2095" x2="1530" y2="2130" class="conn"/>
+<ellipse cx="1530" cy="2134" rx="78" ry="16" class="attr-oval"/>
+<text x="1530" y="2134" class="aname">completed_problems</text>
+
+<!-- status -->
+<line x1="1230" y1="2110" x2="1120" y2="2210" class="conn"/>
+<ellipse cx="1102" cy="2216" rx="35" ry="16" class="attr-oval"/>
+<text x="1102" y="2216" class="aname">status</text>
+
+<!-- created_at -->
+<line x1="1370" y1="2110" x2="1480" y2="2210" class="conn"/>
+<ellipse cx="1500" cy="2216" rx="48" ry="16" class="attr-oval"/>
+<text x="1500" y="2216" class="aname">created_at</text>
+
+</svg>
+</div>
+</body>
+</html>
